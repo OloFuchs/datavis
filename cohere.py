@@ -4,10 +4,21 @@ import pandas as pd
 
 fig, (ax1, ax2) = plt.subplots(2, 1, layout='constrained')
 
-TPDO1_A = "csv/extracted.ChannelGroup_0_CAN1_-_message_MOTOR_A_TPDO1_0x18A_EXT=False.csv"
-RPDO1_A = "csv/extracted.ChannelGroup_4_CAN1_-_message_MOTOR_A_RPDO1_0x20A_EXT=False.csv"
-TEMP_A = "csv/extracted.ChannelGroup_8_CAN1_-_message_MOTOR_A_SDO_0x58A_EXT=False.csv"
+TPDO1_A = "logs/strawberry_0320/csv/extracted.ChannelGroup_0_CAN1_-_message_MOTOR_A_TPDO1_0x18A_EXT=False.csv"
+RPDO1_A = "logs/strawberry_0320/csv/extracted.ChannelGroup_4_CAN1_-_message_MOTOR_A_RPDO1_0x20A_EXT=False.csv"
+TEMP_A  = "logs/strawberry_0320/csv/extracted.ChannelGroup_8_CAN1_-_message_MOTOR_A_SDO_0x58A_EXT=False.csv"
 
+TPDO1_B = "logs/strawberry_0320/csv/extracted.ChannelGroup_0_CAN1_-_message_MOTOR_B_TPDO1_0x18A_EXT=False.csv"
+RPDO1_B = "logs/strawberry_0320/csv/extracted.ChannelGroup_4_CAN1_-_message_MOTOR_B_RPDO1_0x20A_EXT=False.csv"
+TEMP_B  = "logs/strawberry_0320/csv/extracted.ChannelGroup_8_CAN1_-_message_MOTOR_B_SDO_0x58A_EXT=False.csv"
+
+TPDO1_C = "logs/strawberry_0320/csv/extracted.ChannelGroup_0_CAN1_-_message_MOTOR_C_TPDO1_0x18A_EXT=False.csv"
+RPDO1_C = "logs/strawberry_0320/csv/extracted.ChannelGroup_4_CAN1_-_message_MOTOR_C_RPDO1_0x20A_EXT=False.csv"
+TEMP_C  = "logs/strawberry_0320/csv/extracted.ChannelGroup_8_CAN1_-_message_MOTOR_C_SDO_0x58A_EXT=False.csv"
+
+TPDO1_D = "logs/strawberry_0320/csv/extracted.ChannelGroup_0_DAN1_-_message_MOTOR_D_TPDO1_0x18A_EXT=False.csv"
+RPDO1_D = "logs/strawberry_0320/csv/extracted.ChannelGroup_4_DAN1_-_message_MOTOR_D_RPDO1_0x20A_EXT=False.csv"
+TEMP_D  = "logs/strawberry_0320/csv/extracted.ChannelGroup_8_DAN1_-_message_MOTOR_D_SDO_0x58A_EXT=False.csv"
 
 tpd01_A = pd.read_csv(TPDO1_A,skiprows=[1])
 rpd01_A = pd.read_csv(RPDO1_A,skiprows=[1])

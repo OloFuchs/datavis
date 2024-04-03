@@ -1,0 +1,114 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+
+BS_:
+
+BU_:
+
+
+BO_ 394 MOTOR_A_TPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VOLTAGE : 16|16@1+ (32,0) [0|0] "MV" Vector__XXX
+ SG_ RPM : 32|16@1- (1,0) [0|0] "RPM" Vector__XXX
+ SG_ CURRENT : 48|16@1+ (32,0) [0|0] "MA" Vector__XXX
+
+BO_ 395 MOTOR_B_TPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VOLTAGE : 16|16@1+ (32,0) [0|0] "MV" Vector__XXX
+ SG_ RPM : 32|16@1- (1,0) [0|0] "RPM" Vector__XXX
+ SG_ CURRENT : 48|16@1+ (32,0) [0|0] "MA" Vector__XXX
+
+BO_ 396 MOTOR_C_TPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VOLTAGE : 16|16@1+ (32,0) [0|0] "MV" Vector__XXX
+ SG_ RPM : 32|16@1- (1,0) [0|0] "RPM" Vector__XXX
+ SG_ CURRENT : 48|16@1+ (32,0) [0|0] "MA" Vector__XXX
+
+BO_ 397 MOTOR_D_TPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VOLTAGE : 16|16@1+ (32,0) [0|0] "MV" Vector__XXX
+ SG_ RPM : 32|16@1- (1,0) [0|0] "RPM" Vector__XXX
+ SG_ CURRENT : 48|16@1+ (32,0) [0|0] "MA" Vector__XXX
+
+BO_ 522 MOTOR_A_RPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RPM : 16|16@1- (1,0) [0|0] "RPM" Vector__XXX
+
+BO_ 523 MOTOR_B_RPDO1: 8 Vector__XXX
+ SG_ STATUS : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RPM : 16|16@1- (1,0) [0|0] "RPM" Vector__XXX
+
+BO_ 524 MOTOR_C_RPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RPM : 16|16@1- (1,0) [0|0] "RPM" Vector__XXX
+
+BO_ 525 MOTOR_D_RPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RPM : 16|16@1- (1,0) [0|0] "RPM" Vector__XXX
+
+BO_ 1418 MOTOR_A_SDO: 8 Vector__XXX
+ SG_ TEMP : 32|16@1- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 1419 MOTOR_B_SDO: 8 Vector__XXX
+ SG_ TEMP : 32|16@1- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 1420 MOTOR_C_SDO: 8 Vector__XXX
+ SG_ TEMP : 32|16@1- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 1421 MOTOR_D_SDO: 8 Vector__XXX
+ SG_ TEMP : 32|16@1- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 400 PTO_0_TDPO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VOLTAGE : 16|16@1+ (32,0) [0|0] "MV" Vector__XXX
+ SG_ RPM : 32|16@1- (1,0) [0|0] "RPM" Vector__XXX
+ SG_ CURRENT : 48|16@1+ (32,0) [0|0] "MA" Vector__XXX
+
+BO_ 528 PTO_0_RPDO1: 8 Vector__XXX
+ SG_ STATUS M : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RPM : 16|16@1- (1,0) [0|0] "RPM" Vector__XXX
+
+BO_ 650 MOTOR_A_TPDO2: 8 Vector__XXX
+ SG_ BATT_CURRENT : 0|16@1- (32,0) [0|0] "" Vector__XXX
+ SG_ BATT_POWER : 16|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 651 MOTOR_B_TPDO2: 8 Vector__XXX
+ SG_ BATT_CURRENT : 0|16@1- (32,0) [0|0] "" Vector__XXX
+ SG_ BATT_POWER : 16|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 652 MOTOR_C_TPDO2: 8 Vector__XXX
+ SG_ BATT_CURRENT : 0|16@1- (32,0) [0|0] "" Vector__XXX
+ SG_ BATT_POWER : 16|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 653 MOTOR_D_TPDO2: 8 Vector__XXX
+ SG_ BATT_CURRENT : 0|16@1- (32,0) [0|0] "" Vector__XXX
+ SG_ BATT_POWER : 16|16@1- (1,0) [0|0] "" Vector__XXX
+
+
+CM_ BO_ 397 " ";
+VAL_ 394 STATUS 0 "PRE-OP" 1 "IDLE" 2 "POST-OP" 3 "RUN" 4 "FAULT" ;
+VAL_ 395 STATUS 0 "PRE-OP" 1 "IDLE" 2 "POST-OP" 3 "RUN" 4 "FAULT" ;
+VAL_ 396 STATUS 0 "PRE-OP" 1 "IDLE" 2 "POST-OP" 3 "RUN" 4 "FAULT" ;
+VAL_ 397 STATUS 0 "PRE-OP" 1 "IDLE" 2 "POST-OP" 3 "RUN" 4 "FAULT" ;

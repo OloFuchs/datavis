@@ -2,10 +2,14 @@ from asammdf import MDF
 import numpy as np
 
 databases = {
-    "CAN": [("logs/AmigaDBC.dbc", 0)],
+    "CAN": [("datavis/AmigaDBC.dbc", 0)],
 }
 
-with MDF("logs/00000001.MF4") as mdf_file:
+folder = "logs/strawberry_0326/"
+
+with MDF(folder+"00000001.MF4") as mdf_file:
     extracted = mdf_file.extract_bus_logging(database_files=databases)
-    cut = extracted.cut(start = 10, stop = 25, whence=1)
-    cut.export('csv',"csv/extracted.csv", add_units = True,)
+    # extracted = extracted.cut(start = 250, stop = 1500, whence=1)
+    extracted.export('csv',folder+"csv/resample.csv",add_units = True,single_time_base = True, raster = .02)
+    # extracted.export('csv',"logs/strawberry_0320/csv/extracted.csv", add_units = True,)
+    
