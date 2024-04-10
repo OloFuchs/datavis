@@ -20,7 +20,7 @@ def peaks(df,column_name):
     
     return (max_timestamp, max_value)
 
-def time_filter(df, start_time, end_time):
+def time_filter(df, start_time, end_time) -> pd.DataFrame:
 
     filtered = pd.DataFrame()
 

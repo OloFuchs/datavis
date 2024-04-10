@@ -1,5 +1,5 @@
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -8,40 +8,32 @@ import pandas as pd
 class PlotParameters:
     message_name: str
     field_name: str
-    motor_ids: list[str] = ["A", "B", "C", "D"]
-    rolling_window: int = 1
-    scaling_factor:float = 1.0
     y_label: str
-
+    motor_ids: list[str] = field(default_factory=lambda: ["A", "B", "C", "D"])
+    rolling_window: int = 50
+    scaling_factor: float = 1.0
 
 def plot_data(log: pd.DataFrame, plot_params: list[PlotParameters]) -> None:
-
-    fig, axs = plt.subplots(len(plot_params), 1, layout='constrained')
-
+    # Check if there is only one plot to make or multiple
+    if len(plot_params) == 1:
+        fig, axs = plt.subplots(len(plot_params), layout='constrained')
+        axs = [axs]  # Wrap it in a list to make it iterable in the loop
+    else:
+        fig, axs = plt.subplots(len(plot_params), 1, layout='constrained')
+    
     for idx, params in enumerate(plot_params):
         for motor in params.motor_ids:
             field = params.field_name
             message = params.message_name
             window = params.rolling_window
-            log[f"MOTOR_{motor.upper()}_ROLLING_{field.upper()}"] = log[f"CAN1.MOTOR_{motor.upper()}_{message.upper()}.{field.upper()}"].rolling(window,center=True).mean()
-            axs[idx].plot(log["timestamps"],log[f"MOTOR_{motor.upper()}_ROLLING_{field.upper()}"],label = f"{motor.upper()}")
+            motor_field_name = f"MOTOR_{motor.upper()}_ROLLING_{field.upper()}"
+            source_column_name = f"CAN1.MOTOR_{motor.upper()}_{field.upper()}.{message.upper()}"
+            if source_column_name in log.columns:
+                log[motor_field_name] = log[source_column_name].rolling(window, center=True).mean() * params.scaling_factor
+                axs[idx].plot(log["timestamps"], log[motor_field_name], label=f"{motor.upper()}")
+            else:
+                print(f"Column {source_column_name} not found in the log.")
+        axs[idx].set_ylabel(params.y_label)
         axs[idx].legend()
-        # And so on
-
-
-volts_params = PlotParameters(
-    message_name="VOLTAGE",
-    field_name="TPDO1",
-    y_label="Voltage (V)"
-)
-mA_params = PlotParameters(
-    message_name="CURRENT",
-    field_name="TPDO1",
-    y_label="Current (mA)"
-)
-RPM_params = PlotParameters(
-    scaling_factor = 0.000715584993317675
-)
-
-plot_data([volts_params])
-plot_data([volts_params, mA_params])
+        
+    plt.show()
