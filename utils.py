@@ -1,9 +1,9 @@
 import pandas as pd
 
-def average_in_time_range(df, start_time, stop_time, column_name):
+def average_in_time_range(df, start_stop_time: tuple[int, int], column_name):
     
     # Filter the DataFrame for the specified time range
-    filtered_df = df[(df['timestamps'] >= start_time) & (df['timestamps'] <= stop_time)]
+    filtered_df = df[(df['timestamps'] >= start_stop_time[0]) & (df['timestamps'] <= start_stop_time[1])]
     
     # Calculate and return the average of the specified column
     return filtered_df[column_name].mean()

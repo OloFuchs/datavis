@@ -8,10 +8,10 @@ voltage_params = PlotParameters(
     field_name="TPDO1",
     y_label="Voltage (V)"
 )
-current_params = PlotParameters(
+motor_current_params = PlotParameters(
     message_name="CURRENT",
     field_name="TPDO1",
-    y_label="Current (mA)"
+    y_label="Current(mA)"
 )
 
 RPM_params = PlotParameters(
@@ -23,42 +23,39 @@ RPM_params = PlotParameters(
 velocity_params = PlotParameters(
     message_name = "RPM",
     field_name="TPDO1",
-    y_label="velocity (m/s)",
+    y_label="Velocity(m/s)",
     scaling_factor = 0.000715584993317675
 )
 
 temp_params = PlotParameters(
     message_name="TEMP",
     field_name="SDO",
-    y_label="Temperature (c)"
+    y_label="Temperature(c)"
 )
 
-TPDO = [RPM_params,current_params,voltage_params]
+batt_power_params = PlotParameters(
+    message_name = "BATT_POWER",
+    field_name="TPDO2",
+    y_label="watts",
+)
+
+batt_current_params = PlotParameters(
+    message_name="BATT_CURRENT",
+    field_name="TPDO2",
+    y_label="Current(mA)"
+)
+
+
+TPDO = [RPM_params,motor_current_params,voltage_params]
 rpm = [RPM_params]
-velocity_current_temp = [velocity_params,current_params,temp_params]
+velocity_current_temp = [velocity_params,motor_current_params,temp_params]
+battery = [batt_power_params, voltage_params, batt_current_params]
+rpm_current = [RPM_params, motor_current_params]
 
 
 # Assuming log data is in a CSV file for this example
-csv_path = Path("logs/24-04-08-santa-maria/csv/resample.csv")
+csv_path = Path("logs/24-04-12-warehouse/00000010/csv/resample.csv")
 
-# Make sure to replace '/path/to/your/log_file.csv' with the actual path to your log file
-if csv_path.is_file():
-    # Read the CSV file into a DataFrame
-
-    log_df = pd.read_csv(csv_path,skiprows=[1])
-    print(log_df.keys())
-
-    # Now log_df is a DataFrame and can be passed to plot_data
-    # plot_params would be a list of PlotParameters objects you've defined elsewhere
-
-    filtered = time_filter(log_df,74,443)
-
-    plot_data(filtered,velocity_current_temp, csv_path)
-else:
-    print(f"File not found: {csv_path}")
-
-
-
-
+plot_data(csv_path,rpm_current)
 
 # plot_data([volts_params, mA_params])
