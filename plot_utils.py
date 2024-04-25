@@ -66,3 +66,26 @@ def plot_data(csv_path: Path, plot_params: list[PlotParameters], save_title: str
     except Exception as e:
         print(f"An error occurred: {e}")
 
+def motors(csv_path: Path, motor_list: list[str] = ["A", "B", "C", "D"], save_title: str = None, start_stop_time: tuple[int, int] | None = None) -> None:
+    try:
+        # read CSV as panda
+        log = pd.read_csv(csv_path,skiprows=[1])
+        print(log.keys())
+        
+        # crop log for smaller plot
+        if start_stop_time is not None:
+            save_title += "_"+str(start_stop_time[0]) + "_" + str(start_stop_time[1])
+            log = time_filter(log,start_stop_time[0],start_stop_time[1])
+
+        if len(motor_list) == 1:
+            fig, axs = plt.subplots(len(motor_list), layout='constrained')
+            axs = [axs]  # Wrap it in a list to make it iterable in the loop
+        else:
+            fig, axs = plt.subplots(len(motor_list), 1, layout='constrained')
+
+        for idx, motor in enumerate(motor_list):
+            break
+            
+
+    except Exception as e:
+        print(f"An error occurred: {e}") 

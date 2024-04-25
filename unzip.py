@@ -2,29 +2,37 @@ from zipfile import ZipFile
 from asammdf import MDF
 from pathlib import Path
 
+# databases = {
+#     "CAN": [("datavis/AmigaDBC.dbc", 0)],
+# }
+
 databases = {
-    "CAN": [("datavis/AmigaDBC.dbc", 0)],
+    "CAN": [("datavis/JacobsDBC.dbc", 0)],
 }
 
 # Specify the path to your .zip file
-zip_file = Path('logs/24-04-08-santa-maria/24-04-08-santa-maria-20240410T163826Z-001.zip')
+zip_file = Path('logs/24-04-24-jacobs-new-spreader/24-04-24-jacobs-new-spreader-20240425T043024Z-001.zip')
 
 # Specify the directory where you want to extract the files
 directory = zip_file.parent
-
-csv_directory = directory / 'csv'
+print(directory)
 
 # Ensure the directories exist
 directory.mkdir(parents=True, exist_ok=True)
-csv_directory.mkdir(parents=True, exist_ok=True)
+
 
 # Unzip the file
 with ZipFile(zip_file, 'r') as zip_ref:
     zip_ref.extractall(directory)
     # Get the list of extracted file names
     extracted_files = zip_ref.namelist()
+    zip_path = Path(extracted_files[0]).parent
 
 print(f"Files extracted to: {directory}")
+
+csv_directory = directory / zip_path / "csv"
+print(csv_directory)
+csv_directory.mkdir(parents=True, exist_ok=True)
 
 # Correctly construct file paths
 file_list = sorted([directory / Path(i) for i in extracted_files])
@@ -40,3 +48,5 @@ try:
     print(f"Exported CSV to: {csv_output_path}")
 except Exception as e:
     print(f"An error occurred: {e}")
+
+
