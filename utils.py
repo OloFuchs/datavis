@@ -1,3 +1,5 @@
+from __future__ import annotations
+# from dataclasses import dataclass, field
 import pandas as pd
 
 def average_in_time_range(df, start_stop_time: tuple[int, int], column_name):
